@@ -2,10 +2,13 @@ import React, {useState} from "react";
 
 import styles from './UserForm.module.css';
 
+import Modal from "../Modals/Modal";
+
 const UserForm = (props) => {
 
     const [enteredUsername,setEnteredUsername] = useState('');
     const [enteredAge, setEnteredAge] = useState('');
+    const [isModalOpen,setIsModalOpen] = useState(false);
 
     let user = {};
 
@@ -29,21 +32,26 @@ const UserForm = (props) => {
 
         event.preventDefault();
 
-        user={
-            id : Math.random().toString(),
-            username : enteredUsername,
-            age : enteredAge
-        };
-
-        props.onUserSubmit(user)
-
-        cleanForm();
+        if((enteredUsername==='' && enteredAge==='') || enteredAge<=0 || enteredUsername===''){
+            setIsModalOpen(true);
+        }else{
+            user={
+                id : Math.random().toString(),
+                username : enteredUsername,
+                age : enteredAge
+            };
+    
+            props.onUserSubmit(user)
+    
+            cleanForm();
+        }
 
     };
 
     return (
         
-            <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler}>
+                {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} username={enteredUsername} age={enteredAge} />}
                 <div className={styles.form_input_div}>
                     <label style={{display:'block'}} htmlFor="username" >Username</label>
                     <input className={styles.form_input} id="username" type="text" value={enteredUsername} onChange={usernameHandler} />
@@ -53,7 +61,7 @@ const UserForm = (props) => {
                     <input className={styles.form_input} id="age" type="number" value={enteredAge} onChange={ageHandler} />
                 </div>
                 <div className={styles.form_input_div}>
-                    <button type="submit">Add User</button>
+                    <button type="submit" >Add User</button>
                 </div>
             </form>
         

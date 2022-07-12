@@ -1,0 +1,33 @@
+.modal_bg{
+background-color: rgba(0, 0, 0, 0.2);
+height: 179vh;
+width: 138vw;
+transform: translate(-50%,-50%);
+position: absolute;
+z-index: 0;
+}
+
+.centered{
+    position: fixed;
+}
+
+.modal{
+    position: fixed;
+    border: 1px solid gray;
+    height: 150px;
+    width: 200px;
+    top: 60%;
+    left: 60%;
+    background-color: white;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.modal_head{
+    background-color: blue;
+    height: 50px;
+}
+
+.modal_body{
+background-color: whitesmoke;
+}
