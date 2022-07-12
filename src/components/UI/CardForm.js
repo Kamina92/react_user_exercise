@@ -5,9 +5,19 @@ import styles from './CardForm.module.css';
 
 const CardForm = (props) => {
 
+    let newUserData = {};
+
+    const saveUser = (user) => {
+
+        newUserData=user;
+
+        props.onUserSubmit(newUserData);
+
+    }
+
     return (
         <div className={styles.card_form}>
-            <h2>test</h2>
+            <UserForm onUserSubmit={saveUser} />
         </div>
     );
 
