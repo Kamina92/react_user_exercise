@@ -1,5 +1,5 @@
 .users_box {
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: whitesmoke;
     color: black;
     width: 70vh;
@@ -7,4 +7,5 @@
     display: flex;
     flex-direction: column;
     margin-top: 30px;
+    padding: 0px;
 }

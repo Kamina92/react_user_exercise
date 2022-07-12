@@ -1,4 +1,17 @@
 .user_card{
     border: 1px solid gray;
-    margin: auto
-};
+    text-decoration: none;
+    list-style: none;
+    width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.user_card p{
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: 540;
+}

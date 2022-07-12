@@ -16,7 +16,7 @@ const Modal = (props) => {
 
 
     return (
-        <div className={styles.modal_bg}>
+        <div className={styles.modal_bg} onClick={()=> props.setIsModalOpen(false)} >
             <div className={styles.modal}>
                 <div className={styles.modal_head}>
                     <h2>Invalid input</h2>
@@ -24,7 +24,9 @@ const Modal = (props) => {
                 <div className={styles.modal_body}>
                     {ModalBody}
                 </div>
-                <button onClick={()=> props.setIsModalOpen(false)} >Okay</button>
+                <div style={{display:'flex',justifyContent:'end'}}>
+                    <button className={styles.modal_button} onClick={()=> props.setIsModalOpen(false)} >Okay</button>
+                </div>
             </div>
         </div>
     );
